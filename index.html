@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Website with Sound</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+    }
+
+    #video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    #button-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .custom-button {
+      margin: 10px;
+      padding: 15px 30px;
+      font-size: 16px;
+      background-color: transparent;
+      color: #fff;
+      border: 2px solid #fff;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .custom-button:hover {
+      color: #3498db;
+      border-color: #3498db;
+    }
+  </style>
+  <style>
+    /* Style for the transparent button */
+    .transparent-button {
+      margin: 10px;
+      background-color: transparent;
+      border: 2px solid #ffffff; /* You can change the border color */
+      color: #ffffff; /* You can change the text color */
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<video id="video-background" autoplay muted loop>
+    <source src="/SUBHOM /videoplayback.webm" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <audio autoplay>
+    <source src="/SUBHOM /videoplayback (1) - Copy.mp3" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
+
+  <div id="button-container">
+          <a href="https://subhom1234.github.io/Supplimentary1/" class="transparent-button">Tech Fest ( JISCE 1st Year 1st Semister )</a>
+       <a href="/SUBHOM /Subhom Kole pdf to image (3).jpg" class="transparent-button">Web Development Cirtificate </a>
+    <a href="/SUBHOM /Cirtificate for c and java (1).pdf" class="custom-button" download="document1.pdf">C,C++,JAVA ( CIRTIFICATE )</a>
+
+    <!-- Add more buttons as needed -->
+  </div>
+
+  <script>
+    document.querySelectorAll('.custom-button').forEach(function(button) {
+      button.addEventListener('click', function(event) {
+        event.preventDefault();
+        openFile(this.href);
+      });
+    });
+
+    function openFile(fileSrc) {
+      // Check if the file is an image or PDF
+      if (fileSrc.toLowerCase().endsWith(".pdf")) {
+        // Trigger PDF download
+        var a = document.createElement('a');
+        a.href = fileSrc;
+        a.download = fileSrc.split('/').pop();
+        a.click();
+      } else {
+        // Display image (you may add your image display logic here)
+        console.log('Image clicked');
+      }
+    }
+  </script>
+</body>
+</html>
